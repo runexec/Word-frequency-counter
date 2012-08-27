@@ -23,7 +23,7 @@
 (def ^:dynamic *counted-words* (atom ()))
 (def ^:dynamic *counted-board* (atom {})) ;; {:the 10, :and 100, :before 50}
 
-(defn counted?
+(defn word-counted?
   "Returns true if in *counted-words* atom"
   [str-word]
   (not (empty?
@@ -36,7 +36,7 @@
       [counted *counted-words*
        board *counted-board*
        k (keyword str-word)]
-    (if-not (counted? str-word)
+    (if-not (word-counted? str-word)
       (do
         (swap! counted conj str-word)
         (swap! board assoc k 1))
