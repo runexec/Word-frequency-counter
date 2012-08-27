@@ -2,7 +2,7 @@
 
 
 ;;
-;;(word-counter/reading "text body")
+;;(word-counter/word-count "text body")
 ;;
 
 ;;
@@ -51,7 +51,7 @@
   (reverse (flatten
             (sort-by second @*counted-board*))))
 
-(defn reading
+(defn word-count
   "Main function to analyze words"
   [str-text-body]
   (dosync
