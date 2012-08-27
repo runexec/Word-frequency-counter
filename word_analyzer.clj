@@ -54,7 +54,8 @@
 (defn reading
   "Main function to analyze words"
   [str-text-body]
-  (reset! *words* ())
-  (reset! *counted-words* ())
-  (reset! *counted-board* {})
-  (load-occurances str-text-body))
+  (dosync
+   (reset! *words* ())
+   (reset! *counted-words* ())
+   (reset! *counted-board* {})
+   (load-occurances str-text-body)))
